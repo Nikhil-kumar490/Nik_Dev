@@ -456,7 +456,8 @@
 
     .polaroid-image-container {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      padding-bottom: 100%;
+      height: 0;
       position: relative;
       overflow: hidden;
       border-radius: 4px;
@@ -465,7 +466,8 @@
 
     .photo {
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -760,7 +762,7 @@
         </div>
 
         <p class="photo-footer-text">
-          <span class="emoji">👆</span> Jo abhi tumne feel kiya, woh bhi feel karegi — because of you <span class="emoji">❤️</span>
+          <span class="emoji">👆</span> Yar tum hmko Kese Jhel leti ho..respect <span class="emoji">❤️</span>
         </p>
       </div>
     </section>
@@ -1029,9 +1031,9 @@
     function initializePhotoExperience() {
       const photoContainer = document.getElementById('photoContainer');
       const dotsContainer = document.getElementById('carouselDots');
-      
+
       if (!photoContainer) return;
-      
+
       // Dynamically create dots based on totalPhotos
       if (dotsContainer) {
         dotsContainer.innerHTML = '';
@@ -1040,7 +1042,7 @@
           dot.className = `dot ${i === 1 ? 'dot-active' : ''}`;
           dot.setAttribute('data-index', i);
           dotsContainer.appendChild(dot);
-          
+
           dot.addEventListener('click', (e) => {
             if (state.currentSceneId !== 'photo-experience') return;
             e.stopPropagation();
@@ -1055,13 +1057,13 @@
         document.querySelectorAll('.polaroid-image-container .photo').forEach(img => img.classList.remove('photo-active'));
         const nextPhoto = document.getElementById(`photo-${state.currentPhotoIndex}`);
         if (nextPhoto) nextPhoto.classList.add('photo-active');
-        
+
         // Update dots
         const dots = document.querySelectorAll('.carousel-dots .dot');
         dots.forEach(dot => dot.classList.remove('dot-active'));
         const activeDot = document.querySelector(`.carousel-dots .dot[data-index="${state.currentPhotoIndex}"]`);
         if (activeDot) activeDot.classList.add('dot-active');
-        
+
         updateProgressIndicator();
       };
 
