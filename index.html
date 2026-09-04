@@ -1,598 +1,622 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Komal Kumari — A Cinematic Story</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
   <style>
-/* =========================================
+    /* =========================================
    ROOT VARIABLES & RESET
    ========================================= */
-:root {
-  --bg-color: #ffdae9;
-  --bg-gradient-1: #ffebf0;
-  --bg-gradient-2: #ffc2db;
-  --text-main: #e12b6b;
-  --text-muted: #7c6270;
-  --accent: #e12b6b;
-  --accent-glow: rgba(225, 43, 107, 0.4);
-  --btn-bg: #fffbf9;
-  --btn-border: #ffaec8;
-  --btn-hover: #fcd742;
-  --btn-hover-text: #4a453f;
-  
-  --font-display: 'Outfit', sans-serif;
-  --font-body: 'Outfit', sans-serif;
-  --font-accent: 'Nanum Pen Script', cursive;
-  --font-serif: 'Playfair Display', serif;
-  
-  --ease-cinematic: cubic-bezier(0.25, 1, 0.5, 1);
-  --transition-slow: 1.2s var(--ease-cinematic);
-  --transition-med: 0.6s var(--ease-cinematic);
-  --transition-fast: 0.3s var(--ease-cinematic);
-}
+    :root {
+      --bg-color: #ffdae9;
+      --bg-gradient-1: #ffebf0;
+      --bg-gradient-2: #ffc2db;
+      --text-main: #e12b6b;
+      --text-muted: #7c6270;
+      --accent: #e12b6b;
+      --accent-glow: rgba(225, 43, 107, 0.4);
+      --btn-bg: #fffbf9;
+      --btn-border: #ffaec8;
+      --btn-hover: #fcd742;
+      --btn-hover-text: #4a453f;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+      --font-accent: 'Nanum Pen Script', cursive;
+      --font-serif: 'Playfair Display', serif;
 
-body, html {
-  width: 100%;
-  height: 100%;
-  overflow: hidden; /* No scrolling */
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+      --ease-cinematic: cubic-bezier(0.25, 1, 0.5, 1);
+      --transition-slow: 1.2s var(--ease-cinematic);
+      --transition-med: 0.6s var(--ease-cinematic);
+      --transition-fast: 0.3s var(--ease-cinematic);
+    }
 
-/* =========================================
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      /* No scrolling */
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* =========================================
    CINEMATIC BACKGROUND
    ========================================= */
-.bg-cinematic {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
+    .bg-cinematic {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-.bg-gradient {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
-  opacity: 0.8;
-}
+    .bg-gradient {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
+      opacity: 0.8;
+    }
 
-.bg-grain {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.02;
-  mix-blend-mode: overlay;
-}
+    .bg-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.02;
+      mix-blend-mode: overlay;
+    }
 
-/* =========================================
+    /* =========================================
    GLOBAL TYPOGRAPHY
    ========================================= */
-.display-text {
-  font-family: var(--font-body);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 1rem;
-}
+    .display-text {
+      font-family: var(--font-body);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
 
-.accent-text {
-  font-family: var(--font-accent);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-}
+    .accent-text {
+      font-family: var(--font-accent);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
 
-/* =========================================
+    /* =========================================
    UI COMPONENTS
    ========================================= */
-/* Music Controller */
-.music-controller {
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 50px;
-  background: var(--btn-bg);
-  border: 1px solid var(--btn-border);
-  backdrop-filter: blur(10px);
-  transition: all var(--transition-fast);
-}
+    /* Music Controller */
+    .music-controller {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      background: var(--btn-bg);
+      border: 1px solid var(--btn-border);
+      backdrop-filter: blur(10px);
+      transition: all var(--transition-fast);
+    }
 
-.music-controller:hover {
-  background: var(--btn-hover);
-}
+    .music-controller:hover {
+      background: var(--btn-hover);
+    }
 
-.equalizer {
-  display: flex;
-  align-items: flex-end;
-  gap: 3px;
-  height: 12px;
-}
+    .equalizer {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 12px;
+    }
 
-.equalizer .bar {
-  width: 3px;
-  background-color: var(--text-main);
-  border-radius: 2px;
-  transition: height 0.2s ease;
-}
+    .equalizer .bar {
+      width: 3px;
+      background-color: var(--text-main);
+      border-radius: 2px;
+      transition: height 0.2s ease;
+    }
 
-.music-controller.playing .equalizer .bar {
-  animation: eq-play 1s ease-in-out infinite alternate;
-}
+    .music-controller.playing .equalizer .bar {
+      animation: eq-play 1s ease-in-out infinite alternate;
+    }
 
-.music-controller.playing .equalizer .bar:nth-child(2) {
-  animation-delay: 0.2s;
-}
+    .music-controller.playing .equalizer .bar:nth-child(2) {
+      animation-delay: 0.2s;
+    }
 
-.music-controller.playing .equalizer .bar:nth-child(3) {
-  animation-delay: 0.4s;
-}
+    .music-controller.playing .equalizer .bar:nth-child(3) {
+      animation-delay: 0.4s;
+    }
 
-@keyframes eq-play {
-  0% { height: 2px; }
-  100% { height: 12px; }
-}
+    @keyframes eq-play {
+      0% {
+        height: 2px;
+      }
 
-.music-status {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-  color: var(--text-muted);
-}
+      100% {
+        height: 12px;
+      }
+    }
 
-/* Hidden Audio */
-#audioPlayer {
-  display: none;
-}
+    .music-status {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
 
-/* Progress Indicator */
-.progress-indicator {
-  position: fixed;
-  bottom: 2.5rem;
-  left: 2.5rem;
-  z-index: 100;
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  font-weight: 500;
-  color: var(--text-muted);
-  opacity: 0;
-  transition: opacity var(--transition-med);
-}
+    /* Hidden Audio */
+    #audioPlayer {
+      display: none;
+    }
 
-.progress-indicator.visible {
-  opacity: 1;
-}
+    /* Progress Indicator */
+    .progress-indicator {
+      position: fixed;
+      bottom: 2.5rem;
+      left: 2.5rem;
+      z-index: 100;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      font-weight: 500;
+      color: var(--text-muted);
+      opacity: 0;
+      transition: opacity var(--transition-med);
+    }
 
-/* Buttons */
-.btn {
-  background: var(--btn-bg);
-  border: 1px solid var(--btn-border);
-  color: var(--text-main);
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  backdrop-filter: blur(10px);
-  outline: none;
-  box-shadow: 0 4px 15px rgba(225, 43, 107, 0.1);
-}
+    .progress-indicator.visible {
+      opacity: 1;
+    }
 
-.btn:hover, .btn:focus-visible {
-  background: var(--btn-hover);
-  color: var(--btn-hover-text);
-  border-color: var(--btn-hover);
-  transform: scale(1.05);
-}
+    /* Buttons */
+    .btn {
+      background: var(--btn-bg);
+      border: 1px solid var(--btn-border);
+      color: var(--text-main);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      backdrop-filter: blur(10px);
+      outline: none;
+      box-shadow: 0 4px 15px rgba(225, 43, 107, 0.1);
+    }
 
-.btn:active {
-  transform: scale(0.98);
-}
+    .btn:hover,
+    .btn:focus-visible {
+      background: var(--btn-hover);
+      color: var(--btn-hover-text);
+      border-color: var(--btn-hover);
+      transform: scale(1.05);
+    }
 
-.btn-continue {
-  margin-top: 2.5rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-}
+    .btn:active {
+      transform: scale(0.98);
+    }
 
-.btn-continue .arrow {
-  transition: transform var(--transition-fast);
-}
+    .btn-continue {
+      margin-top: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
 
-.btn-continue:hover .arrow {
-  transform: translateX(5px);
-}
+    .btn-continue .arrow {
+      transition: transform var(--transition-fast);
+    }
 
-/* =========================================
+    .btn-continue:hover .arrow {
+      transform: translateX(5px);
+    }
+
+    /* =========================================
    SCENE SYSTEM
    ========================================= */
-main {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-}
+    main {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
 
-.scene {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-  transition: opacity var(--transition-slow), visibility var(--transition-slow), transform var(--transition-slow);
-  transform: scale(1.02);
-}
+    .scene {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity var(--transition-slow), visibility var(--transition-slow), transform var(--transition-slow);
+      transform: scale(1.02);
+    }
 
-.scene.scene-active {
-  opacity: 1;
-  pointer-events: auto;
-  visibility: visible;
-  transform: scale(1);
-}
+    .scene.scene-active {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+      transform: scale(1);
+    }
 
-.scene-content {
-  width: 100%;
-  max-width: 1200px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-}
+    .scene-content {
+      width: 100%;
+      max-width: 1200px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
 
-/* =========================================
+    /* =========================================
    SCENE 1: THE QUESTION
    ========================================= */
-.scene-1-layout {
-  align-items: center;
-  text-align: center;
-}
+    .scene-1-layout {
+      align-items: center;
+      text-align: center;
+    }
 
-.question-card {
-  margin-top: 4rem;
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  height: 150px;
-}
+    .question-card {
+      margin-top: 4rem;
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: 150px;
+    }
 
-.btn-group {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
 
-.btn-yes {
-  position: absolute;
-  left: 20%;
-  transform: translateX(-50%);
-  top: 50%;
-  margin-top: -25px; /* Half height */
-}
+    .btn-yes {
+      position: absolute;
+      left: 20%;
+      transform: translateX(-50%);
+      top: 50%;
+      margin-top: -25px;
+      /* Half height */
+    }
 
-.btn-yes.clicked {
-  background: var(--text-main);
-  color: #fff;
-  transform: translateX(-50%) scale(1.1);
-  box-shadow: 0 0 30px rgba(225, 43, 107, 0.4);
-}
+    .btn-yes.clicked {
+      background: var(--text-main);
+      color: #fff;
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 0 30px rgba(225, 43, 107, 0.4);
+    }
 
-.btn-no {
-  position: absolute;
-  left: 80%;
-  transform: translateX(-50%);
-  top: 50%;
-  margin-top: -25px;
-  transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1), top 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform var(--transition-fast);
-}
+    .btn-no {
+      position: absolute;
+      left: 80%;
+      transform: translateX(-50%);
+      top: 50%;
+      margin-top: -25px;
+      transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1), top 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform var(--transition-fast);
+    }
 
-/* =========================================
+    /* =========================================
    SCENE 2 & 3: EDITORIAL
    ========================================= */
-.chapter-indicator {
-  font-family: var(--font-accent);
-  font-size: 1.25rem;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.1em;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all var(--transition-slow) 0.2s;
-}
+    .chapter-indicator {
+      font-family: var(--font-accent);
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.1em;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all var(--transition-slow) 0.2s;
+    }
 
-.scene-2-layout .display-text,
-.scene-3-layout .display-text {
-  max-width: 800px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all var(--transition-slow) 0.4s;
-}
+    .scene-2-layout .display-text,
+    .scene-3-layout .display-text {
+      max-width: 800px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all var(--transition-slow) 0.4s;
+    }
 
-.editorial-text {
-  margin-top: 2rem;
-  max-width: 500px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-muted);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all var(--transition-slow) 0.6s;
-  background: rgba(255, 255, 255, 0.4);
-  padding: 1.5rem;
-  border-radius: 12px;
-}
+    .editorial-text {
+      margin-top: 2rem;
+      max-width: 500px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all var(--transition-slow) 0.6s;
+      background: rgba(255, 255, 255, 0.4);
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
 
-.editorial-text p {
-  margin-bottom: 1rem;
-}
-.editorial-text p:last-child {
-  margin-bottom: 0;
-}
+    .editorial-text p {
+      margin-bottom: 1rem;
+    }
 
-.scene-2-layout .btn-continue,
-.scene-3-layout .btn-continue {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all var(--transition-slow) 0.8s;
-  align-self: flex-start;
-}
+    .editorial-text p:last-child {
+      margin-bottom: 0;
+    }
 
-.scene.scene-active .chapter-indicator,
-.scene.scene-active .display-text,
-.scene.scene-active .editorial-text,
-.scene.scene-active .btn-continue {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .scene-2-layout .btn-continue,
+    .scene-3-layout .btn-continue {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all var(--transition-slow) 0.8s;
+      align-self: flex-start;
+    }
 
-/* =========================================
+    .scene.scene-active .chapter-indicator,
+    .scene.scene-active .display-text,
+    .scene.scene-active .editorial-text,
+    .scene.scene-active .btn-continue {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================
    SCENE 4: CLIMAX
    ========================================= */
-.scene-4-layout {
-  align-items: center;
-  text-align: center;
-}
+    .scene-4-layout {
+      align-items: center;
+      text-align: center;
+    }
 
-.climax-text {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: all var(--transition-slow) 0.3s;
-}
+    .climax-text {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all var(--transition-slow) 0.3s;
+    }
 
-.scene.scene-active .climax-text {
-  opacity: 1;
-  transform: scale(1);
-}
+    .scene.scene-active .climax-text {
+      opacity: 1;
+      transform: scale(1);
+    }
 
-.btn-climax {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all var(--transition-slow) 0.6s;
-}
+    .btn-climax {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all var(--transition-slow) 0.6s;
+    }
 
-.scene.scene-active .btn-climax {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .scene.scene-active .btn-climax {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* =========================================
+    /* =========================================
    PHOTO EXPERIENCE
    ========================================= */
-.photo-experience {
-  background: #0b090a; /* Darker for photos */
-  padding: 0;
-}
+    .photo-experience {
+      background: #0b090a;
+      /* Darker for photos */
+      padding: 0;
+    }
 
-.photo-hint {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 20;
-  font-size: 1.2rem;
-  font-style: italic;
-  font-family: var(--font-serif);
-  color: #fff;
-  background: rgba(0,0,0,0.5);
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  backdrop-filter: blur(5px);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--transition-slow);
-}
+    .photo-hint {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 20;
+      font-size: 1.2rem;
+      font-style: italic;
+      font-family: var(--font-serif);
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      backdrop-filter: blur(5px);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity var(--transition-slow);
+    }
 
-.photo-hint.visible {
-  opacity: 1;
-  animation: pulse-hint 2s infinite alternate;
-}
+    .photo-hint.visible {
+      opacity: 1;
+      animation: pulse-hint 2s infinite alternate;
+    }
 
-@keyframes pulse-hint {
-  0% { transform: translate(-50%, -50%) scale(1); }
-  100% { transform: translate(-50%, -50%) scale(1.05); }
-}
+    @keyframes pulse-hint {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+      }
 
-.photo-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  cursor: pointer;
-}
+      100% {
+        transform: translate(-50%, -50%) scale(1.05);
+      }
+    }
 
-.photo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0;
-  transform: scale(1.05);
-  filter: blur(10px);
-  transition: opacity 1.5s var(--ease-cinematic), 
-              transform 3s ease-out,
-              filter 1.5s var(--ease-cinematic);
-  pointer-events: none;
-}
+    .photo-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+    }
 
-.photo.photo-active {
-  opacity: 1;
-  transform: scale(1);
-  filter: blur(0);
-  pointer-events: auto;
-}
+    .photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transform: scale(1.05);
+      filter: blur(10px);
+      transition: opacity 1.5s var(--ease-cinematic),
+        transform 3s ease-out,
+        filter 1.5s var(--ease-cinematic);
+      pointer-events: none;
+    }
 
-/* =========================================
+    .photo.photo-active {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+      pointer-events: auto;
+    }
+
+    /* =========================================
    FINAL ENDING
    ========================================= */
-.ending-layout {
-  align-items: center;
-  text-align: center;
-}
+    .ending-layout {
+      align-items: center;
+      text-align: center;
+    }
 
-.ending-text {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all var(--transition-slow) 0.5s;
-}
+    .ending-text {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all var(--transition-slow) 0.5s;
+    }
 
-.ending-heart {
-  font-size: 3rem;
-  margin: 1.5rem 0;
-  opacity: 0;
-  transform: scale(0.5);
-  transition: all var(--transition-slow) 1s;
-}
+    .ending-heart {
+      font-size: 3rem;
+      margin: 1.5rem 0;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all var(--transition-slow) 1s;
+    }
 
-.scene.scene-active .ending-text,
-.scene.scene-active .ending-heart,
-.scene.scene-active .ending-layout .accent-text {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
+    .scene.scene-active .ending-text,
+    .scene.scene-active .ending-heart,
+    .scene.scene-active .ending-layout .accent-text {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
 
-.ending-layout .accent-text {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all var(--transition-slow) 1.5s;
-}
+    .ending-layout .accent-text {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all var(--transition-slow) 1.5s;
+    }
 
-/* =========================================
+    /* =========================================
    RESPONSIVENESS
    ========================================= */
-@media (max-width: 768px) {
-  .display-text {
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
-  
-  .accent-text {
-    font-size: 1.25rem;
-  }
-  
-  .btn-group {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
+    @media (max-width: 768px) {
+      .display-text {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
 
-  .btn-yes, .btn-no {
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: 200px;
-    margin: 0;
-  }
-  
-  /* Reset for absolute positioning on mobile */
-  .btn-no {
-    transition: transform var(--transition-fast);
-  }
-  
-  /* Mobile specific absolute for the NO button game */
-  .question-card.mobile-game .btn-no {
-    position: absolute;
-    /* initial top/left will be set by JS */
-  }
-  .question-card.mobile-game .btn-yes {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+      .accent-text {
+        font-size: 1.25rem;
+      }
 
-  .music-controller {
-    top: 1.5rem;
-    right: 1.5rem;
-    padding: 0.5rem;
-  }
-  
-  .music-status {
-    display: none; /* Hide text on mobile */
-  }
-  
-  .progress-indicator {
-    bottom: 1.5rem;
-    left: 1.5rem;
-  }
-}
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
 
-/* =========================================
+      .btn-yes,
+      .btn-no {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 200px;
+        margin: 0;
+      }
+
+      /* Reset for absolute positioning on mobile */
+      .btn-no {
+        transition: transform var(--transition-fast);
+      }
+
+      /* Mobile specific absolute for the NO button game */
+      .question-card.mobile-game .btn-no {
+        position: absolute;
+        /* initial top/left will be set by JS */
+      }
+
+      .question-card.mobile-game .btn-yes {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .music-controller {
+        top: 1.5rem;
+        right: 1.5rem;
+        padding: 0.5rem;
+      }
+
+      .music-status {
+        display: none;
+        /* Hide text on mobile */
+      }
+
+      .progress-indicator {
+        bottom: 1.5rem;
+        left: 1.5rem;
+      }
+    }
+
+    /* =========================================
    REDUCED MOTION
    ========================================= */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-  
-  .scene {
-    transition: opacity 0.5s ease;
-    transform: none !important;
-  }
-  
-  .photo {
-    transition: opacity 0.5s ease;
-    transform: none !important;
-    filter: none !important;
-  }
-  
-  /* NO button evasion simplified for accessibility */
-  .btn-no:hover {
-    opacity: 0.5; /* Visual feedback instead of wild movement */
-  }
-}
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .scene {
+        transition: opacity 0.5s ease;
+        transform: none !important;
+      }
+
+      .photo {
+        transition: opacity 0.5s ease;
+        transform: none !important;
+        filter: none !important;
+      }
+
+      /* NO button evasion simplified for accessibility */
+      .btn-no:hover {
+        opacity: 0.5;
+        /* Visual feedback instead of wild movement */
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Background Layer -->
@@ -613,7 +637,9 @@ main {
 
   <!-- Hidden Audio Player -->
   <audio id="audioPlayer" preload="auto">
-    <source src="https://cdn.jsdelivr.net/gh/satyamjha1710/Music@main/Aasa%20Kooda.mp3" type="audio/mpeg">
+    <!-- 🎵 CHANGE YOUR MUSIC HERE 🎵 -->
+    <!-- Replace the 'src' link below with your own music link, or a local file like "music.mp3" -->
+    <source src="https://www.youtube.com/shorts/BdgzFnjM7qk" type="audio/mpeg">
   </audio>
 
   <!-- Progress Indicator -->
@@ -623,13 +649,13 @@ main {
 
   <!-- Main App Container -->
   <main id="appContainer">
-    
+
     <!-- ================= SCENE 1 ================= -->
     <section class="scene scene-active" id="scene-1" aria-hidden="false">
       <div class="scene-content scene-1-layout">
         <h1 class="display-text scene-title">Are you ready to admit you miss the vibe?</h1>
         <p class="accent-text scene-subtitle">Be honest. No one is judging. (I am a little.)</p>
-        
+
         <div class="question-card" id="questionCard">
           <div class="btn-group">
             <button class="btn btn-yes" id="btnYes">YES</button>
@@ -643,9 +669,10 @@ main {
     <section class="scene" id="scene-2" aria-hidden="true">
       <div class="scene-content scene-2-layout">
         <span class="chapter-indicator">Chapter II — The Observation</span>
-        <h2 class="display-text">Commerce student by degree.<br/>CA aspirant by ambition.</h2>
+        <h2 class="display-text">Commerce student by degree.<br />CA aspirant by ambition.</h2>
         <div class="editorial-text">
-          <p>You talk more, remember the tiniest details, and act innocent perfectly. A rare and valuable skill set. The committee has reviewed the evidence.</p>
+          <p>You talk more, remember the tiniest details, and act innocent perfectly. A rare and valuable skill set. The
+            committee has reviewed the evidence.</p>
         </div>
         <button class="btn btn-continue" id="btnContinue2">Continue <span class="arrow">→</span></button>
       </div>
@@ -658,7 +685,8 @@ main {
         <h2 class="display-text">Priorities are clear.</h2>
         <div class="editorial-text">
           <p>Studying accounts by day. Studying the menu by evening.</p>
-          <p class="accent-text">From butter chicken to biryani, there is always room somehow. The metabolism is doing its best.</p>
+          <p class="accent-text">From butter chicken to biryani, there is always room somehow. The metabolism is doing
+            its best.</p>
         </div>
         <button class="btn btn-continue" id="btnContinue3">Continue <span class="arrow">→</span></button>
       </div>
@@ -668,21 +696,23 @@ main {
     <section class="scene" id="scene-4" aria-hidden="true">
       <div class="scene-content scene-4-layout">
         <h2 class="display-text climax-text">One final chapter...</h2>
-        <button class="btn btn-continue btn-climax" id="btnContinue4">Open the memories <span class="arrow">→</span></button>
+        <button class="btn btn-continue btn-climax" id="btnContinue4">Open the memories <span
+            class="arrow">→</span></button>
       </div>
     </section>
 
     <!-- ================= PHOTO EXPERIENCE ================= -->
     <section class="scene photo-experience" id="photo-experience" aria-hidden="true">
       <div class="photo-hint" id="photoHint">tap to continue <span class="arrow">→</span></div>
-      
+
       <div class="photo-container" id="photoContainer">
-        <!-- Photos will be dynamically managed by JS -->
-        <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?q=80&w=1600&auto=format&fit=crop" class="photo photo-active" id="photo-1" alt="Memory 1" />
-        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1600&auto=format&fit=crop" class="photo" id="photo-2" alt="Memory 2" loading="lazy" />
-        <img src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f?q=80&w=1600&auto=format&fit=crop" class="photo" id="photo-3" alt="Memory 3" loading="lazy" />
-        <img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?q=80&w=1600&auto=format&fit=crop" class="photo" id="photo-4" alt="Memory 4" loading="lazy" />
-        <img src="https://images.unsplash.com/photo-1521111998393-4537330528e1?q=80&w=1600&auto=format&fit=crop" class="photo" id="photo-5" alt="Memory 5" loading="lazy" />
+        <!-- 📸 CHANGE YOUR PHOTOS HERE 📸 -->
+        <!-- Save your images in the same folder as this file and name them photo1.jpg, photo2.jpg, etc. -->
+        <img src="img1.jpeg" class="photo photo-active" id="photo-1" alt="Memory 1" />
+        <img src="img2.jpeg" class="photo" id="photo-2" alt="Memory 2" loading="lazy" />
+        <img src="img3.jpeg" class="photo" id="photo-3" alt="Memory 3" loading="lazy" />
+        <img src="img4.jpeg" class="photo" id="photo-4" alt="Memory 4" loading="lazy" />
+        <img src="img5.jpeg" class="photo" id="photo-5" alt="Memory 5" loading="lazy" />
       </div>
     </section>
 
@@ -691,354 +721,356 @@ main {
       <div class="scene-content ending-layout">
         <h2 class="display-text ending-text">That was the story.</h2>
         <span class="ending-heart">❤️</span>
-        <p class="accent-text">Specially made for Komal Kumari.<br/>(from someone who usually avoids extra effort 😌)</p>
+        <p class="accent-text">Specially made for Komal Kumari.<br />(from someone who usually avoids extra effort 😌)
+        </p>
       </div>
     </section>
-    
+
   </main>
 
   <script>
-/**
- * KOMAL KUMARI - Cinematic Experience
- * State & Scene Manager
- */
+    /**
+     * KOMAL KUMARI - Cinematic Experience
+     * State & Scene Manager
+     */
 
-document.addEventListener('DOMContentLoaded', initializeApp);
+    document.addEventListener('DOMContentLoaded', initializeApp);
 
-// =========================================
-// STATE MANAGEMENT
-// =========================================
-const state = {
-  currentSceneId: 'scene-1',
-  currentPhotoIndex: 1,
-  totalPhotos: 5,
-  musicPlaying: false,
-  reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-};
+    // =========================================
+    // STATE MANAGEMENT
+    // =========================================
+    const state = {
+      currentSceneId: 'scene-1',
+      currentPhotoIndex: 1,
+      totalPhotos: 5,
+      musicPlaying: false,
+      reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    };
 
-const scenes = [
-  'scene-1',
-  'scene-2',
-  'scene-3',
-  'scene-4',
-  'photo-experience',
-  'scene-ending'
-];
+    const scenes = [
+      'scene-1',
+      'scene-2',
+      'scene-3',
+      'scene-4',
+      'photo-experience',
+      'scene-ending'
+    ];
 
-// =========================================
-// INITIALIZATION
-// =========================================
-function initializeApp() {
-  initializeScenes();
-  initializeInteractions();
-  initializeMusic();
-  initializePhotoExperience();
-  initializeAccessibility();
-}
+    // =========================================
+    // INITIALIZATION
+    // =========================================
+    function initializeApp() {
+      initializeScenes();
+      initializeInteractions();
+      initializeMusic();
+      initializePhotoExperience();
+      initializeAccessibility();
+    }
 
-function initializeScenes() {
-  // Ensure only scene 1 is active
-  scenes.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      if (id === state.currentSceneId) {
-        el.classList.add('scene-active');
-        el.setAttribute('aria-hidden', 'false');
-      } else {
-        el.classList.remove('scene-active');
-        el.setAttribute('aria-hidden', 'true');
+    function initializeScenes() {
+      // Ensure only scene 1 is active
+      scenes.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          if (id === state.currentSceneId) {
+            el.classList.add('scene-active');
+            el.setAttribute('aria-hidden', 'false');
+          } else {
+            el.classList.remove('scene-active');
+            el.setAttribute('aria-hidden', 'true');
+          }
+        }
+      });
+
+      updateProgressIndicator();
+    }
+
+    // =========================================
+    // SCENE TRANSITIONS
+    // =========================================
+    function goToNextScene() {
+      const currentIndex = scenes.indexOf(state.currentSceneId);
+      if (currentIndex < scenes.length - 1) {
+        const nextSceneId = scenes[currentIndex + 1];
+        transitionToScene(nextSceneId);
       }
     }
-  });
-  
-  updateProgressIndicator();
-}
 
-// =========================================
-// SCENE TRANSITIONS
-// =========================================
-function goToNextScene() {
-  const currentIndex = scenes.indexOf(state.currentSceneId);
-  if (currentIndex < scenes.length - 1) {
-    const nextSceneId = scenes[currentIndex + 1];
-    transitionToScene(nextSceneId);
-  }
-}
+    function transitionToScene(targetSceneId) {
+      const currentEl = document.getElementById(state.currentSceneId);
+      const targetEl = document.getElementById(targetSceneId);
 
-function transitionToScene(targetSceneId) {
-  const currentEl = document.getElementById(state.currentSceneId);
-  const targetEl = document.getElementById(targetSceneId);
-  
-  if (!currentEl || !targetEl) return;
-  
-  // Fade out current
-  currentEl.classList.remove('scene-active');
-  currentEl.setAttribute('aria-hidden', 'true');
-  
-  // Wait for fade out, then fade in target
-  // We don't strictly wait in CSS, the opacity handles it gracefully
-  setTimeout(() => {
-    state.currentSceneId = targetSceneId;
-    targetEl.classList.add('scene-active');
-    targetEl.setAttribute('aria-hidden', 'false');
-    
-    updateProgressIndicator();
-    
-    if (targetSceneId === 'photo-experience') {
-      startPhotoExperience();
+      if (!currentEl || !targetEl) return;
+
+      // Fade out current
+      currentEl.classList.remove('scene-active');
+      currentEl.setAttribute('aria-hidden', 'true');
+
+      // Wait for fade out, then fade in target
+      // We don't strictly wait in CSS, the opacity handles it gracefully
+      setTimeout(() => {
+        state.currentSceneId = targetSceneId;
+        targetEl.classList.add('scene-active');
+        targetEl.setAttribute('aria-hidden', 'false');
+
+        updateProgressIndicator();
+
+        if (targetSceneId === 'photo-experience') {
+          startPhotoExperience();
+        }
+      }, state.reducedMotion ? 50 : 600); // Wait for transition if not reduced motion
     }
-  }, state.reducedMotion ? 50 : 600); // Wait for transition if not reduced motion
-}
 
-// =========================================
-// SCENE 1: THE NO BUTTON GAME
-// =========================================
-function initializeInteractions() {
-  const btnYes = document.getElementById('btnYes');
-  const btnNo = document.getElementById('btnNo');
-  const questionCard = document.getElementById('questionCard');
-  
-  if (!btnYes || !btnNo || !questionCard) return;
+    // =========================================
+    // SCENE 1: THE NO BUTTON GAME
+    // =========================================
+    function initializeInteractions() {
+      const btnYes = document.getElementById('btnYes');
+      const btnNo = document.getElementById('btnNo');
+      const questionCard = document.getElementById('questionCard');
 
-  // Setup mobile game layout if needed
-  if (window.innerWidth <= 768) {
-    questionCard.classList.add('mobile-game');
-    // Set initial absolute positions for mobile
-    btnYes.style.top = '50%';
-    btnYes.style.left = '50%';
-    
-    btnNo.style.top = '80%';
-    btnNo.style.left = '50%';
-  }
+      if (!btnYes || !btnNo || !questionCard) return;
 
-  // YES Button
-  btnYes.addEventListener('click', () => {
-    btnYes.classList.add('clicked');
-    
-    // Start music on first interaction if possible
-    attemptPlayMusic();
-    
-    // Transition after a slight delay
-    setTimeout(() => {
-      goToNextScene();
-    }, 500);
-  });
-  
-  // NO Button Evasion
-  const evadeCursor = (e) => {
-    if (state.reducedMotion) return; // Let it be clickable/hoverable on reduced motion
-    
-    const cardRect = questionCard.getBoundingClientRect();
-    const btnRect = btnNo.getBoundingClientRect();
-    
-    // We want the button to stay safely within the card
-    // Padding of 10px from edges
-    const safePadding = 10;
-    const maxX = cardRect.width - btnRect.width - safePadding;
-    const maxY = cardRect.height - btnRect.height - safePadding;
-    
-    // Generate random position within safe bounds
-    let randomX = safePadding + Math.random() * (maxX - safePadding);
-    let randomY = safePadding + Math.random() * (maxY - safePadding);
-    
-    // Check if the random position is too close to the YES button
-    // (We don't want them to overlap)
-    const yesRect = btnYes.getBoundingClientRect();
-    // Convert yes rect to local coordinates of questionCard
-    const yesLocalX = yesRect.left - cardRect.left;
-    const yesLocalY = yesRect.top - cardRect.top;
-    
-    const dist = Math.hypot(randomX - yesLocalX, randomY - yesLocalY);
-    if (dist < 100) { // If too close, invert the position
-      randomX = maxX - randomX;
-      randomY = maxY - randomY;
+      // Setup mobile game layout if needed
+      if (window.innerWidth <= 768) {
+        questionCard.classList.add('mobile-game');
+        // Set initial absolute positions for mobile
+        btnYes.style.top = '50%';
+        btnYes.style.left = '50%';
+
+        btnNo.style.top = '80%';
+        btnNo.style.left = '50%';
+      }
+
+      // YES Button
+      btnYes.addEventListener('click', () => {
+        btnYes.classList.add('clicked');
+
+        // Start music on first interaction if possible
+        attemptPlayMusic();
+
+        // Transition after a slight delay
+        setTimeout(() => {
+          goToNextScene();
+        }, 500);
+      });
+
+      // NO Button Evasion
+      const evadeCursor = (e) => {
+        if (state.reducedMotion) return; // Let it be clickable/hoverable on reduced motion
+
+        const cardRect = questionCard.getBoundingClientRect();
+        const btnRect = btnNo.getBoundingClientRect();
+
+        // We want the button to stay safely within the card
+        // Padding of 10px from edges
+        const safePadding = 10;
+        const maxX = cardRect.width - btnRect.width - safePadding;
+        const maxY = cardRect.height - btnRect.height - safePadding;
+
+        // Generate random position within safe bounds
+        let randomX = safePadding + Math.random() * (maxX - safePadding);
+        let randomY = safePadding + Math.random() * (maxY - safePadding);
+
+        // Check if the random position is too close to the YES button
+        // (We don't want them to overlap)
+        const yesRect = btnYes.getBoundingClientRect();
+        // Convert yes rect to local coordinates of questionCard
+        const yesLocalX = yesRect.left - cardRect.left;
+        const yesLocalY = yesRect.top - cardRect.top;
+
+        const dist = Math.hypot(randomX - yesLocalX, randomY - yesLocalY);
+        if (dist < 100) { // If too close, invert the position
+          randomX = maxX - randomX;
+          randomY = maxY - randomY;
+        }
+
+        // Apply new position
+        // Since CSS has btn-no position: absolute, we can just set left/top percentages
+        const percX = (randomX / cardRect.width) * 100;
+        const percY = (randomY / cardRect.height) * 100;
+
+        btnNo.style.left = `${percX}%`;
+        btnNo.style.top = `${percY}%`;
+        // Reset margins/transform translation if needed
+        btnNo.style.transform = `translate(-50%, -50%)`;
+      };
+
+      // Trigger on pointerenter (hover) and pointerdown (touch)
+      btnNo.addEventListener('pointerenter', evadeCursor);
+      btnNo.addEventListener('pointerdown', (e) => {
+        e.preventDefault(); // Prevent accidental click
+        evadeCursor();
+      });
+
+      // Just in case they somehow click it
+      btnNo.addEventListener('click', (e) => {
+        if (!state.reducedMotion) {
+          e.preventDefault();
+          evadeCursor();
+        }
+      });
+
+      // Continue buttons for scenes 2, 3, 4
+      const btnC2 = document.getElementById('btnContinue2');
+      if (btnC2) btnC2.addEventListener('click', goToNextScene);
+
+      const btnC3 = document.getElementById('btnContinue3');
+      if (btnC3) btnC3.addEventListener('click', goToNextScene);
+
+      const btnC4 = document.getElementById('btnContinue4');
+      if (btnC4) btnC4.addEventListener('click', goToNextScene);
     }
-    
-    // Apply new position
-    // Since CSS has btn-no position: absolute, we can just set left/top percentages
-    const percX = (randomX / cardRect.width) * 100;
-    const percY = (randomY / cardRect.height) * 100;
-    
-    btnNo.style.left = `${percX}%`;
-    btnNo.style.top = `${percY}%`;
-    // Reset margins/transform translation if needed
-    btnNo.style.transform = `translate(-50%, -50%)`;
-  };
-  
-  // Trigger on pointerenter (hover) and pointerdown (touch)
-  btnNo.addEventListener('pointerenter', evadeCursor);
-  btnNo.addEventListener('pointerdown', (e) => {
-    e.preventDefault(); // Prevent accidental click
-    evadeCursor();
-  });
-  
-  // Just in case they somehow click it
-  btnNo.addEventListener('click', (e) => {
-    if (!state.reducedMotion) {
-      e.preventDefault();
-      evadeCursor();
-    }
-  });
 
-  // Continue buttons for scenes 2, 3, 4
-  const btnC2 = document.getElementById('btnContinue2');
-  if (btnC2) btnC2.addEventListener('click', goToNextScene);
-  
-  const btnC3 = document.getElementById('btnContinue3');
-  if (btnC3) btnC3.addEventListener('click', goToNextScene);
-  
-  const btnC4 = document.getElementById('btnContinue4');
-  if (btnC4) btnC4.addEventListener('click', goToNextScene);
-}
+    // =========================================
+    // MUSIC PLAYER
+    // =========================================
+    function initializeMusic() {
+      const audio = document.getElementById('audioPlayer');
+      const controller = document.getElementById('musicController');
+      const status = document.getElementById('musicStatus');
 
-// =========================================
-// MUSIC PLAYER
-// =========================================
-function initializeMusic() {
-  const audio = document.getElementById('audioPlayer');
-  const controller = document.getElementById('musicController');
-  const status = document.getElementById('musicStatus');
-  
-  if (!audio || !controller) return;
-  
-  controller.addEventListener('click', () => {
-    if (state.musicPlaying) {
-      audio.pause();
-    } else {
-      audio.play().catch(err => {
-        console.warn("Audio play failed on toggle:", err);
-        status.textContent = "Error loading";
+      if (!audio || !controller) return;
+
+      controller.addEventListener('click', () => {
+        if (state.musicPlaying) {
+          audio.pause();
+        } else {
+          audio.play().catch(err => {
+            console.warn("Audio play failed on toggle:", err);
+            status.textContent = "Error loading";
+          });
+        }
+      });
+
+      audio.addEventListener('play', () => {
+        state.musicPlaying = true;
+        controller.classList.add('playing');
+        status.textContent = "Playing";
+      });
+
+      audio.addEventListener('pause', () => {
+        state.musicPlaying = false;
+        controller.classList.remove('playing');
+        status.textContent = "Paused";
+      });
+
+      audio.addEventListener('error', () => {
+        console.error("Audio file failed to load.");
+        status.textContent = "Unavailable";
+        controller.style.opacity = '0.5';
       });
     }
-  });
-  
-  audio.addEventListener('play', () => {
-    state.musicPlaying = true;
-    controller.classList.add('playing');
-    status.textContent = "Playing";
-  });
-  
-  audio.addEventListener('pause', () => {
-    state.musicPlaying = false;
-    controller.classList.remove('playing');
-    status.textContent = "Paused";
-  });
-  
-  audio.addEventListener('error', () => {
-    console.error("Audio file failed to load.");
-    status.textContent = "Unavailable";
-    controller.style.opacity = '0.5';
-  });
-}
 
-function attemptPlayMusic() {
-  const audio = document.getElementById('audioPlayer');
-  if (!audio || state.musicPlaying) return;
-  
-  audio.play().then(() => {
-    // Played successfully
-  }).catch(err => {
-    console.log("Autoplay prevented:", err);
-    // Silent fail, user can tap the music icon
-  });
-}
+    function attemptPlayMusic() {
+      const audio = document.getElementById('audioPlayer');
+      if (!audio || state.musicPlaying) return;
 
-// =========================================
-// PHOTO EXPERIENCE
-// =========================================
-function initializePhotoExperience() {
-  const photoContainer = document.getElementById('photoContainer');
-  if (!photoContainer) return;
-  
-  photoContainer.addEventListener('click', () => {
-    if (state.currentSceneId !== 'photo-experience') return;
-    
-    // Hide hint
-    const hint = document.getElementById('photoHint');
-    if (hint) hint.classList.remove('visible');
-    
-    if (state.currentPhotoIndex < state.totalPhotos) {
-      // Go to next photo
-      const currentPhoto = document.getElementById(`photo-${state.currentPhotoIndex}`);
-      const nextPhoto = document.getElementById(`photo-${state.currentPhotoIndex + 1}`);
-      
-      if (currentPhoto) currentPhoto.classList.remove('photo-active');
-      if (nextPhoto) nextPhoto.classList.add('photo-active');
-      
-      state.currentPhotoIndex++;
-      updateProgressIndicator();
-    } else {
-      // Finished photos, go to ending
-      goToNextScene();
+      audio.play().then(() => {
+        // Played successfully
+      }).catch(err => {
+        console.log("Autoplay prevented:", err);
+        // Silent fail, user can tap the music icon
+      });
     }
-  });
-}
 
-function startPhotoExperience() {
-  // Show hint after a delay
-  setTimeout(() => {
-    const hint = document.getElementById('photoHint');
-    if (hint && state.currentPhotoIndex === 1) {
-      hint.classList.add('visible');
+    // =========================================
+    // PHOTO EXPERIENCE
+    // =========================================
+    function initializePhotoExperience() {
+      const photoContainer = document.getElementById('photoContainer');
+      if (!photoContainer) return;
+
+      photoContainer.addEventListener('click', () => {
+        if (state.currentSceneId !== 'photo-experience') return;
+
+        // Hide hint
+        const hint = document.getElementById('photoHint');
+        if (hint) hint.classList.remove('visible');
+
+        if (state.currentPhotoIndex < state.totalPhotos) {
+          // Go to next photo
+          const currentPhoto = document.getElementById(`photo-${state.currentPhotoIndex}`);
+          const nextPhoto = document.getElementById(`photo-${state.currentPhotoIndex + 1}`);
+
+          if (currentPhoto) currentPhoto.classList.remove('photo-active');
+          if (nextPhoto) nextPhoto.classList.add('photo-active');
+
+          state.currentPhotoIndex++;
+          updateProgressIndicator();
+        } else {
+          // Finished photos, go to ending
+          goToNextScene();
+        }
+      });
     }
-  }, 2000);
-}
 
-// =========================================
-// PROGRESS INDICATOR
-// =========================================
-function updateProgressIndicator() {
-  const indicator = document.getElementById('progressIndicator');
-  const text = document.getElementById('progressText');
-  
-  if (!indicator || !text) return;
-  
-  if (state.currentSceneId === 'photo-experience') {
-    indicator.classList.add('visible');
-    text.textContent = `0${state.currentPhotoIndex} / 0${state.totalPhotos}`;
-  } else if (state.currentSceneId === 'scene-ending' || state.currentSceneId === 'scene-1') {
-    indicator.classList.remove('visible');
-  } else {
-    // Scene 2, 3, 4
-    indicator.classList.add('visible');
-    const sceneIndex = scenes.indexOf(state.currentSceneId); // 1, 2, 3
-    // We can map scene 2->1, scene 3->2, scene 4->3
-    text.textContent = `0${sceneIndex} / 03`;
-  }
-}
-
-// =========================================
-// ACCESSIBILITY & KEYBOARD NAV
-// =========================================
-function initializeAccessibility() {
-  // Listen for reduced motion changes
-  window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', e => {
-    state.reducedMotion = e.matches;
-  });
-  
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    // Allow space/enter to trigger YES on scene 1 if no button is focused
-    if (state.currentSceneId === 'scene-1' && (e.key === 'Enter' || e.key === ' ')) {
-      if (document.activeElement.tagName !== 'BUTTON') {
-        const btnYes = document.getElementById('btnYes');
-        if (btnYes) btnYes.click();
-      }
+    function startPhotoExperience() {
+      // Show hint after a delay
+      setTimeout(() => {
+        const hint = document.getElementById('photoHint');
+        if (hint && state.currentPhotoIndex === 1) {
+          hint.classList.add('visible');
+        }
+      }, 2000);
     }
-    
-    // Right arrow to advance scenes (except scene 1 which requires the button)
-    if (e.key === 'ArrowRight') {
-      if (state.currentSceneId === 'scene-1') return;
-      
+
+    // =========================================
+    // PROGRESS INDICATOR
+    // =========================================
+    function updateProgressIndicator() {
+      const indicator = document.getElementById('progressIndicator');
+      const text = document.getElementById('progressText');
+
+      if (!indicator || !text) return;
+
       if (state.currentSceneId === 'photo-experience') {
-        const photoContainer = document.getElementById('photoContainer');
-        if (photoContainer) photoContainer.click();
-      } else if (state.currentSceneId !== 'scene-ending') {
-        goToNextScene();
+        indicator.classList.add('visible');
+        text.textContent = `0${state.currentPhotoIndex} / 0${state.totalPhotos}`;
+      } else if (state.currentSceneId === 'scene-ending' || state.currentSceneId === 'scene-1') {
+        indicator.classList.remove('visible');
+      } else {
+        // Scene 2, 3, 4
+        indicator.classList.add('visible');
+        const sceneIndex = scenes.indexOf(state.currentSceneId); // 1, 2, 3
+        // We can map scene 2->1, scene 3->2, scene 4->3
+        text.textContent = `0${sceneIndex} / 03`;
       }
     }
-  });
-}
+
+    // =========================================
+    // ACCESSIBILITY & KEYBOARD NAV
+    // =========================================
+    function initializeAccessibility() {
+      // Listen for reduced motion changes
+      window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', e => {
+        state.reducedMotion = e.matches;
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        // Allow space/enter to trigger YES on scene 1 if no button is focused
+        if (state.currentSceneId === 'scene-1' && (e.key === 'Enter' || e.key === ' ')) {
+          if (document.activeElement.tagName !== 'BUTTON') {
+            const btnYes = document.getElementById('btnYes');
+            if (btnYes) btnYes.click();
+          }
+        }
+
+        // Right arrow to advance scenes (except scene 1 which requires the button)
+        if (e.key === 'ArrowRight') {
+          if (state.currentSceneId === 'scene-1') return;
+
+          if (state.currentSceneId === 'photo-experience') {
+            const photoContainer = document.getElementById('photoContainer');
+            if (photoContainer) photoContainer.click();
+          } else if (state.currentSceneId !== 'scene-ending') {
+            goToNextScene();
+          }
+        }
+      });
+    }
   </script>
 </body>
+
 </html>
