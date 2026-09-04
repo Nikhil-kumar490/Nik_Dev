@@ -421,50 +421,46 @@
    PHOTO EXPERIENCE
    ========================================= */
     .photo-experience {
-      background: #0b090a;
-      /* Darker for photos */
-      padding: 0;
+      background: transparent;
     }
 
-    .photo-hint {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 20;
-      font-size: 1.2rem;
-      font-style: italic;
-      font-family: var(--font-serif);
-      color: #fff;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      backdrop-filter: blur(5px);
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity var(--transition-slow);
+    .photo-layout {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .photo-hint.visible {
-      opacity: 1;
-      animation: pulse-hint 2s infinite alternate;
+    .polaroid-wrapper {
+      perspective: 1000px;
+      margin-bottom: 2rem;
     }
 
-    @keyframes pulse-hint {
-      0% {
-        transform: translate(-50%, -50%) scale(1);
-      }
-
-      100% {
-        transform: translate(-50%, -50%) scale(1.05);
-      }
-    }
-
-    .photo-container {
-      width: 100%;
-      height: 100%;
-      position: relative;
+    .polaroid-card {
+      background: #ffffff;
+      padding: 15px 15px 55px 15px;
+      border-radius: 8px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      transform: rotate(-3deg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    .polaroid-card:hover {
+      transform: rotate(0deg) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .polaroid-image-container {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #fdfdfd;
     }
 
     .photo {
@@ -475,19 +471,59 @@
       object-fit: cover;
       object-position: center;
       opacity: 0;
-      transform: scale(1.05);
-      filter: blur(10px);
-      transition: opacity 1.5s var(--ease-cinematic),
-        transform 3s ease-out,
-        filter 1.5s var(--ease-cinematic);
+      transition: opacity 0.6s ease;
       pointer-events: none;
     }
 
     .photo.photo-active {
       opacity: 1;
-      transform: scale(1);
-      filter: blur(0);
       pointer-events: auto;
+    }
+
+    .polaroid-caption {
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-family: var(--font-accent);
+      font-weight: 400;
+      color: var(--text-main);
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 2rem;
+      z-index: 20;
+      position: relative;
+    }
+
+    .dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ffc2db;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .dot.dot-active {
+      width: 36px;
+      border-radius: 10px;
+      background: var(--text-main);
+    }
+
+    .photo-footer-text {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.5;
     }
 
     /* =========================================
@@ -703,16 +739,29 @@
 
     <!-- ================= PHOTO EXPERIENCE ================= -->
     <section class="scene photo-experience" id="photo-experience" aria-hidden="true">
-      <div class="photo-hint" id="photoHint">tap to continue <span class="arrow">→</span></div>
+      <div class="scene-content photo-layout">
+        <div class="polaroid-wrapper">
+          <div class="polaroid-card" id="photoContainer">
+            <div class="polaroid-image-container">
+              <!-- 📸 CHANGE YOUR PHOTOS HERE 📸 -->
+              <!-- Save your images in the same folder as this file and name them photo1.jpg, photo2.jpg, etc. -->
+              <img src="img1.jpeg" class="photo photo-active" id="photo-1" alt="Memory 1" />
+              <img src="img2.jpeg" class="photo" id="photo-2" alt="Memory 2" loading="lazy" />
+              <img src="img3.jpeg" class="photo" id="photo-3" alt="Memory 3" loading="lazy" />
+              <img src="img4.jpeg" class="photo" id="photo-4" alt="Memory 4" loading="lazy" />
+              <img src="img5.jpeg" class="photo" id="photo-5" alt="Memory 5" loading="lazy" />
+            </div>
+            <div class="polaroid-caption" id="polaroidCaption">us</div>
+          </div>
+        </div>
 
-      <div class="photo-container" id="photoContainer">
-        <!-- 📸 CHANGE YOUR PHOTOS HERE 📸 -->
-        <!-- Save your images in the same folder as this file and name them photo1.jpg, photo2.jpg, etc. -->
-        <img src="img1.jpeg" class="photo photo-active" id="photo-1" alt="Memory 1" />
-        <img src="img2.jpeg" class="photo" id="photo-2" alt="Memory 2" loading="lazy" />
-        <img src="img3.jpeg" class="photo" id="photo-3" alt="Memory 3" loading="lazy" />
-        <img src="img4.jpeg" class="photo" id="photo-4" alt="Memory 4" loading="lazy" />
-        <img src="img5.jpeg" class="photo" id="photo-5" alt="Memory 5" loading="lazy" />
+        <div class="carousel-dots" id="carouselDots">
+          <!-- Dots are dynamically generated by JavaScript -->
+        </div>
+
+        <p class="photo-footer-text">
+          <span class="emoji">👆</span> Jo abhi tumne feel kiya, woh bhi feel karegi — because of you <span class="emoji">❤️</span>
+        </p>
       </div>
     </section>
 
@@ -979,25 +1028,49 @@
     // =========================================
     function initializePhotoExperience() {
       const photoContainer = document.getElementById('photoContainer');
+      const dotsContainer = document.getElementById('carouselDots');
+      
       if (!photoContainer) return;
+      
+      // Dynamically create dots based on totalPhotos
+      if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        for (let i = 1; i <= state.totalPhotos; i++) {
+          const dot = document.createElement('div');
+          dot.className = `dot ${i === 1 ? 'dot-active' : ''}`;
+          dot.setAttribute('data-index', i);
+          dotsContainer.appendChild(dot);
+          
+          dot.addEventListener('click', (e) => {
+            if (state.currentSceneId !== 'photo-experience') return;
+            e.stopPropagation();
+            state.currentPhotoIndex = i;
+            updateCarousel();
+          });
+        }
+      }
+
+      const updateCarousel = () => {
+        // Update photos
+        document.querySelectorAll('.polaroid-image-container .photo').forEach(img => img.classList.remove('photo-active'));
+        const nextPhoto = document.getElementById(`photo-${state.currentPhotoIndex}`);
+        if (nextPhoto) nextPhoto.classList.add('photo-active');
+        
+        // Update dots
+        const dots = document.querySelectorAll('.carousel-dots .dot');
+        dots.forEach(dot => dot.classList.remove('dot-active'));
+        const activeDot = document.querySelector(`.carousel-dots .dot[data-index="${state.currentPhotoIndex}"]`);
+        if (activeDot) activeDot.classList.add('dot-active');
+        
+        updateProgressIndicator();
+      };
 
       photoContainer.addEventListener('click', () => {
         if (state.currentSceneId !== 'photo-experience') return;
 
-        // Hide hint
-        const hint = document.getElementById('photoHint');
-        if (hint) hint.classList.remove('visible');
-
         if (state.currentPhotoIndex < state.totalPhotos) {
-          // Go to next photo
-          const currentPhoto = document.getElementById(`photo-${state.currentPhotoIndex}`);
-          const nextPhoto = document.getElementById(`photo-${state.currentPhotoIndex + 1}`);
-
-          if (currentPhoto) currentPhoto.classList.remove('photo-active');
-          if (nextPhoto) nextPhoto.classList.add('photo-active');
-
           state.currentPhotoIndex++;
-          updateProgressIndicator();
+          updateCarousel();
         } else {
           // Finished photos, go to ending
           goToNextScene();
@@ -1006,13 +1079,7 @@
     }
 
     function startPhotoExperience() {
-      // Show hint after a delay
-      setTimeout(() => {
-        const hint = document.getElementById('photoHint');
-        if (hint && state.currentPhotoIndex === 1) {
-          hint.classList.add('visible');
-        }
-      }, 2000);
+      // No initial hint logic needed for polaroid
     }
 
     // =========================================
@@ -1024,16 +1091,12 @@
 
       if (!indicator || !text) return;
 
-      if (state.currentSceneId === 'photo-experience') {
-        indicator.classList.add('visible');
-        text.textContent = `0${state.currentPhotoIndex} / 0${state.totalPhotos}`;
-      } else if (state.currentSceneId === 'scene-ending' || state.currentSceneId === 'scene-1') {
+      if (state.currentSceneId === 'photo-experience' || state.currentSceneId === 'scene-ending' || state.currentSceneId === 'scene-1') {
         indicator.classList.remove('visible');
       } else {
         // Scene 2, 3, 4
         indicator.classList.add('visible');
         const sceneIndex = scenes.indexOf(state.currentSceneId); // 1, 2, 3
-        // We can map scene 2->1, scene 3->2, scene 4->3
         text.textContent = `0${sceneIndex} / 03`;
       }
     }
