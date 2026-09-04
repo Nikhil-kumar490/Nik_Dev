@@ -433,6 +433,7 @@
     .polaroid-wrapper {
       perspective: 1000px;
       margin-bottom: 2rem;
+      width: 100%;
     }
 
     .polaroid-card {
@@ -691,8 +692,8 @@
     <!-- ================= SCENE 1 ================= -->
     <section class="scene scene-active" id="scene-1" aria-hidden="false">
       <div class="scene-content scene-1-layout">
-        <h1 class="display-text scene-title">Are you ready to admit you miss the vibe?</h1>
-        <p class="accent-text scene-subtitle">Be honest. No one is judging. (I am a little.)</p>
+        <h1 class="display-text scene-title">Kya Tum Apna Leg Piece Muhe Deogi ?</h1>
+        <p class="accent-text scene-subtitle">Be honest. No one is judging. (But I'm)</p>
 
         <div class="question-card" id="questionCard">
           <div class="btn-group">
@@ -722,7 +723,7 @@
         <span class="chapter-indicator">Chapter III — The Truth</span>
         <h2 class="display-text">Priorities are clear.</h2>
         <div class="editorial-text">
-          <p>Studying accounts by day. Studying the menu by evening.</p>
+          <p>Studying accounts by day. Studying the menu by evening. <b>Chugli Lover</b></p>
           <p class="accent-text">From butter chicken to biryani, there is always room somehow. The metabolism is doing
             its best.</p>
         </div>
@@ -1031,9 +1032,9 @@
     function initializePhotoExperience() {
       const photoContainer = document.getElementById('photoContainer');
       const dotsContainer = document.getElementById('carouselDots');
-
+      
       if (!photoContainer) return;
-
+      
       // Dynamically create dots based on totalPhotos
       if (dotsContainer) {
         dotsContainer.innerHTML = '';
@@ -1042,7 +1043,7 @@
           dot.className = `dot ${i === 1 ? 'dot-active' : ''}`;
           dot.setAttribute('data-index', i);
           dotsContainer.appendChild(dot);
-
+          
           dot.addEventListener('click', (e) => {
             if (state.currentSceneId !== 'photo-experience') return;
             e.stopPropagation();
@@ -1057,13 +1058,13 @@
         document.querySelectorAll('.polaroid-image-container .photo').forEach(img => img.classList.remove('photo-active'));
         const nextPhoto = document.getElementById(`photo-${state.currentPhotoIndex}`);
         if (nextPhoto) nextPhoto.classList.add('photo-active');
-
+        
         // Update dots
         const dots = document.querySelectorAll('.carousel-dots .dot');
         dots.forEach(dot => dot.classList.remove('dot-active'));
         const activeDot = document.querySelector(`.carousel-dots .dot[data-index="${state.currentPhotoIndex}"]`);
         if (activeDot) activeDot.classList.add('dot-active');
-
+        
         updateProgressIndicator();
       };
 
